@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>朗子美白 · 杭州 | 焕亮肌肤，自然透白</title>
+  <!-- Font Awesome 6 (free) for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #ffffff;
+      color: #1e2a2f;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* 配色: 纯净白 + 淡雅青/薄荷 + 深灰蓝 */
+    :root {
+      --primary: #0f4c5c;        /* 深青蓝 - 稳重 */
+      --secondary: #9bc4bc;       /* 浅薄荷绿 */
+      --accent: #e1f0ec;          /* 极淡冰蓝 */
+      --soft-bg: #f7fbfa;
+      --text-dark: #1e2a2f;
+      --text-soft: #3f5b63;
+      --white: #ffffff;
+      --shadow-sm: 0 8px 20px rgba(0, 40, 30, 0.05);
+      --shadow-md: 0 15px 30px rgba(0, 50, 40, 0.08);
+      --border-radius: 24px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* 导航 */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      background: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.9);
+      border-bottom: 1px solid rgba(155, 196, 188, 0.2);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-icon {
+      font-size: 2rem;
+      color: var(--primary);
+    }
+
+    .logo-text h1 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--primary);
+      line-height: 1.2;
+    }
+
+    .logo-text span {
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      color: var(--text-soft);
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      font-size: 1rem;
+      transition: color 0.2s ease;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--secondary);
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .btn-outline {
+      border: 1.5px solid var(--primary);
+      background: transparent;
+      padding: 10px 24px;
+      border-radius: 40px;
+      font-weight: 500;
+      color: var(--primary);
+      transition: all 0.2s;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+
+    .btn-outline:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-solid {
+      background: var(--primary);
+      color: white;
+      padding: 12px 32px;
+      border: none;
+      border-radius: 40px;
+      font-weight: 500;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 8px 18px rgba(15, 76, 92, 0.2);
+    }
+
+    .btn-solid:hover {
+      background: #0b3b47;
+      transform: translateY(-2px);
+      box-shadow: 0 15px 25px rgba(15, 76, 92, 0.3);
+    }
+
+    /* 主角区域 */
+    .hero {
+      padding: 60px 0 80px;
+      background: linear-gradient(145deg, #ffffff 0%, #f4fbf9 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(155, 196, 188, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      z-index: 0;
+    }
+
+    .hero .container {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-content {
+      flex: 1.1;
+    }
+
+    .hero-content .tag {
+      display: inline-block;
+      background: rgba(155, 196, 188, 0.25);
+      color: var(--primary);
+      font-weight: 500;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      padding: 6px 18px;
+      border-radius: 40px;
+      margin-bottom: 24px;
+      border: 1px solid rgba(155, 196, 188, 0.5);
+    }
+
+    .hero-content h2 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--primary);
+      margin-bottom: 24px;
+    }
+
+    .hero-content h2 span {
+      background: linear-gradient(120deg, #0f4c5c 0%, #2b8c7a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-content p {
+      font-size: 1.15rem;
+      color: var(--text-soft);
+      max-width: 500px;
+      margin-bottom: 40px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .hero-image {
+      flex: 0.9;
+      background: linear-gradient(135deg, #d9ebe6, #bcd9d2);
+      border-radius: 40% 60% 30% 70% / 50% 40% 60% 50%;
+      padding: 12px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-image-placeholder {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: linear-gradient(145deg, #ffffff, #e4f3ef);
+      border-radius: 40% 60% 30% 70% / 50% 40% 60% 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+    }
+
+    .hero-image-placeholder i {
+      font-size: 5rem;
+      margin-bottom: 20px;
+      color: var(--primary);
+      opacity: 0.7;
+    }
+
+    .hero-image-placeholder p {
+      font-weight: 500;
+      letter-spacing: 2px;
+      font-size: 1.1rem;
+      color: var(--text-soft);
+    }
+
+    /* 数字部分 */
+    .stats {
+      background: var(--white);
+      padding: 40px 0;
+      border-bottom: 1px solid #e2efeb;
+    }
+
+    .stats-grid {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.1;
+    }
+
+    .stat-label {
+      color: var(--text-soft);
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      font-size: 0.95rem;
+    }
+
+    /* 通用节标题 */
+    .section-title {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .section-title .mini {
+      color: var(--secondary);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.8rem;
+      margin-bottom: 12px;
+    }
+
+    .section-title h3 {
+      font-size: 2.4rem;
+      font-weight: 650;
+      color: var(--primary);
+      letter-spacing: -0.02em;
+    }
+
+    /* 特色卡片区 */
+    .features {
+      padding: 80px 0;
+      background: var(--soft-bg);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+    }
+
+    .feature-card {
+      background: var(--white);
+      padding: 36px 28px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.25s, box-shadow 0.3s;
+      border: 1px solid rgba(155, 196, 188, 0.2);
+      text-align: center;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--secondary);
+    }
+
+    .feature-icon {
+      font-size: 2.2rem;
+      width: 70px;
+      height: 70px;
+      line-height: 70px;
+      background: #e1f0ec;
+      color: var(--primary);
+      border-radius: 30px 12px 30px 12px;
+      margin: 0 auto 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .feature-card h4 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .feature-card p {
+      color: var(--text-soft);
+      font-size: 0.95rem;
+    }
+
+    /* 产品/服务 */
+    .products {
+      padding: 80px 0;
+      background: var(--white);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .product-item {
+      background: var(--soft-bg);
+      border-radius: var(--border-radius);
+      padding: 32px 24px;
+      transition: all 0.25s;
+      border: 1px solid transparent;
+    }
+
+    .product-item:hover {
+      background: white;
+      border-color: var(--secondary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .product-icon {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .product-item h4 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--primary);
+    }
+
+    .product-item p {
+      color: var(--text-soft);
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+
+    .product-tag {
+      display: inline-block;
+      background: #d9ebe6;
+      color: #0f4c5c;
+      padding: 5px 14px;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    /* 关于/品牌故事 */
+    .about {
+      padding: 80px 0;
+      background: linear-gradient(120deg, #f4fbf9, #ffffff);
+    }
+
+    .about-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .about-text {
+      flex: 1;
+    }
+
+    .about-text .mini {
+      color: var(--secondary);
+      font-weight: 600;
+      letter-spacing: 2px;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .about-text h3 {
+      font-size: 2.2rem;
+      font-weight: 650;
+      color: var(--primary);
+      margin-bottom: 24px;
+      line-height: 1.3;
+    }
+
+    .about-text p {
+      color: var(--text-soft);
+      margin-bottom: 20px;
+      font-size: 1.05rem;
+    }
+
+    .about-highlight {
+      display: flex;
+      gap: 18px;
+      margin-top: 32px;
+    }
+
+    .highlight-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 500;
+      color: var(--primary);
+    }
+
+    .highlight-item i {
+      background: var(--secondary);
+      color: white;
+      width: 24px;
+      height: 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 0.8rem;
+    }
+
+    .about-visual {
+      flex: 1;
+      background: linear-gradient(130deg, #bcd9d2, #e1f0ec);
+      border-radius: 38% 62% 40% 60% / 60% 40% 60% 40%;
+      padding: 12px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-visual-inner {
+      width: 100%;
+      aspect-ratio: 1 / 0.9;
+      background: #ffffffcc;
+      backdrop-filter: blur(4px);
+      border-radius: 38% 62% 40% 60% / 60% 40% 60% 40%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      padding: 20px;
+    }
+
+    .about-visual-inner i {
+      font-size: 4rem;
+      margin-bottom: 15px;
+      opacity: 0.8;
+    }
+
+    .about-visual-inner span {
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+    }
+
+    /* 联系方式/表单 */
+    .contact {
+      padding: 80px 0;
+      background: var(--primary);
+      color: white;
+    }
+
+    .contact .container {
+      display: flex;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .contact-info {
+      flex: 1;
+    }
+
+    .contact-info h3 {
+      font-size: 2.2rem;
+      font-weight: 650;
+      margin-bottom: 20px;
+      color: white;
+    }
+
+    .contact-info p {
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 40px;
+      font-size: 1.05rem;
+      max-width: 400px;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-detail-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .contact-detail-item i {
+      font-size: 1.2rem;
+      width: 44px;
+      height: 44px;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--secondary);
+    }
+
+    .contact-form {
+      flex: 1;
+      background: white;
+      padding: 40px;
+      border-radius: 28px;
+      color: var(--text-dark);
+      box-shadow: 0 30px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-form h4 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .contact-form .subhead {
+      color: var(--text-soft);
+      margin-bottom: 28px;
+      font-size: 0.95rem;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 15px 18px;
+      border: 1.5px solid #e0ece8;
+      border-radius: 18px;
+      font-size: 1rem;
+      font-family: inherit;
+      background: var(--soft-bg);
+      transition: border 0.2s, background 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--secondary);
+      background: white;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .btn-submit {
+      background: var(--primary);
+      color: white;
+      border: none;
+      width: 100%;
+      padding: 16px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      margin-top: 8px;
+    }
+
+    .btn-submit:hover {
+      background: #0b3b47;
+    }
+
+    /* 页脚 */
+    .footer {
+      background: #0b2d34;
+      color: rgba(255, 255, 255, 0.7);
+      padding: 40px 0;
+      font-size: 0.9rem;
+    }
+
+    .footer .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      color: white;
+    }
+
+    .footer-logo i {
+      font-size: 1.4rem;
+      color: var(--secondary);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 28px;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    /* 响应式 */
+    @media (max-width: 992px) {
+      .hero .container {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-actions {
+        justify-content: center;
+      }
+      .about-wrapper {
+        flex-direction: column;
+      }
+      .contact .container {
+        flex-direction: column;
+      }
+      .nav-links {
+        display: none; /* 移动端简单隐藏，可扩展汉堡菜单 */
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-content h2 {
+        font-size: 2.4rem;
+      }
+      .stats-grid {
+        gap: 18px;
+      }
+      .stat-number {
+        font-size: 2rem;
+      }
+      .footer .container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 导航栏 -->
+  <header class="navbar">
+    <div class="container" style="display: flex; justify-content: space-between; width: 100%;">
+      <div class="logo">
+        <div class="logo-icon"><i class="fas fa-leaf"></i></div>
+        <div class="logo-text">
+          <h1>朗子美白</h1>
+          <span>LANGZI · BRIGHT</span>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#home">首页</a>
+        <a href="#features">特色</a>
+        <a href="#products">产品</a>
+        <a href="#about">关于</a>
+        <a href="#contact">联系</a>
+      </nav>
+      <button class="btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">预约咨询</button>
+    </div>
+  </header>
+
+  <!-- 英雄区 -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <div class="tag">✨ 杭州 · 专注美白科技</div>
+        <h2>唤醒肌肤<br><span>自然透亮光采</span></h2>
+        <p>朗子美白，源自浙江杭州的实验室级美白方案。融合东方草本与前沿亮肤科技，为你定制温和有效的焕白体验。</p>
+        <div class="hero-actions">
+          <button class="btn-solid" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">探索产品</button>
+          <button class="btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">免费咨询</button>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="hero-image-placeholder">
+          <i class="fas fa-sun"></i>
+          <p>LANGZI GLOW</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 数据统计 -->
+  <section class="stats">
+    <div class="container stats-grid">
+      <div class="stat-item">
+        <div class="stat-number">12+</div>
+        <div class="stat-label">年研发沉淀</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">300万+</div>
+        <div class="stat-label">用户见证</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">98%</div>
+        <div class="stat-label">温和满意度</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">50+</div>
+        <div class="stat-label">核心专利</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 特色 -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-title">
+        <div class="mini">Why Langzi</div>
+        <h3>科学美白，温柔呵护</h3>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-flask"></i></div>
+          <h4>实验室专研</h4>
+          <p>与浙江大学化妆品研究中心合作，每一滴精华都经过严谨功效测试。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-seedling"></i></div>
+          <h4>草本复配</h4>
+          <p>光果甘草、积雪草、白芍药等东方植萃，温和抑制黑色素。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-droplet"></i></div>
+          <h4>透皮吸收</h4>
+          <p>纳米微囊包裹技术，活性成分精准送达基底层，不刺激角质层。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+          <h4>敏感肌友好</h4>
+          <p>无酒精、无香精、无传统防腐剂，通过人体斑贴测试。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 产品系列 -->
+  <section class="products" id="products">
+    <div class="container">
+      <div class="section-title">
+        <div class="mini">Signature Collection</div>
+        <h3>明星美白系列</h3>
+      </div>
+      <div class="product-grid">
+        <div class="product-item">
+          <div class="product-icon"><i class="fas fa-sun"></i></div>
+          <h4>光感透白精华</h4>
+          <p>高浓度烟酰胺+传明酸，28天改善暗沉，提亮肤色。</p>
+          <span class="product-tag">明星单品</span>
+        </div>
+        <div class="product-item">
+          <div class="product-icon"><i class="fas fa-moon"></i></div>
+          <h4>夜间焕白面霜</h4>
+          <p>夜间修护黄金期，美白+抗氧，睡出透光肌。</p>
+          <span class="product-tag">口碑推荐</span>
+        </div>
+        <div class="product-item">
+          <div class="product-icon"><i class="fas fa-leaf"></i></div>
+          <h4>植萃美白面膜</h4>
+          <p>甘草与熊果苷双重亮肤，舒缓补水，急救焕亮。</p>
+          <span class="product-tag">人气新品</span>
+        </div>
+        <div class="product-item">
+          <div class="product-icon"><i class="fas fa-hand-sparkles"></i></div>
+          <h4>温和美白身体乳</h4>
+          <p>改善关节暗沉，全身匀净透亮，清爽不粘腻。</p>
+          <span class="product-tag">全身焕白</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 关于我们 / 品牌故事 -->
+  <section class="about" id="about">
+    <div class="container about-wrapper">
+      <div class="about-text">
+        <div class="mini">Our Story</div>
+        <h3>杭州朗子美白<br>让美白回归健康与科学</h3>
+        <p>浙江杭州朗子美白公司成立于2013年，扎根于西子湖畔，致力于将皮肤科学与天然成分相结合。我们相信，真正的美白不是短暂的遮盖，而是肌肤由内而外的健康透亮。</p>
+        <p>朗子拥有独立研发实验室与十万级洁净生产车间，所有产品均通过严格的安全性测试。从原料种植到成品出库，全链可追溯。</p>
+        <div class="about-highlight">
+          <div class="highlight-item"><i class="fas fa-check"></i> GMPC认证</div>
+          <div class="highlight-item"><i class="fas fa-check"></i> 零动物实验</div>
+          <div class="highlight-item"><i class="fas fa-check"></i> 环保包装</div>
+        </div>
+      </div>
+      <div class="about-visual">
+        <div class="about-visual-inner">
+          <i class="fas fa-gem"></i>
+          <span>杭州 · 朗子实验室</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 联系表单 -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-info">
+        <h3>开启你的焕白之旅</h3>
+        <p>无论是产品咨询还是定制方案，朗子专业顾问随时为你服务。留下联系方式，我们将尽快与你联系。</p>
+        <div class="contact-details">
+          <div class="contact-detail-item">
+            <i class="fas fa-phone-alt"></i>
+            <span>0571-8899 6321</span>
+          </div>
+          <div class="contact-detail-item">
+            <i class="fas fa-envelope"></i>
+            <span>hello@langzi-bright.com</span>
+          </div>
+          <div class="contact-detail-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>浙江省杭州市西湖区美妆科技园7幢</span>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <h4>预约咨询</h4>
+        <div class="subhead">填写信息，获得专属美白建议</div>
+        <form id="contactForm" onsubmit="event.preventDefault(); alert('感谢您的咨询！朗子顾问将尽快联系您。');">
+          <div class="form-group">
+            <input type="text" placeholder="您的姓名" required>
+          </div>
+          <div class="form-group">
+            <input type="tel" placeholder="手机号码" required>
+          </div>
+          <div class="form-group">
+            <textarea placeholder="您感兴趣的产品或皮肤问题"></textarea>
+          </div>
+          <button type="submit" class="btn-submit">提交预约</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">
+        <i class="fas fa-leaf"></i>
+        <span>浙江杭州朗子美白公司</span>
+      </div>
+      <div class="footer-links">
+        <a href="#home">首页</a>
+        <a href="#features">特色</a>
+        <a href="#products">产品</a>
+        <a href="#about">关于</a>
+      </div>
+      <div class="copyright">
+        © 2025 Langzi Bright. 杭ICP备2025001234号
+      </div>
+    </div>
+  </footer>
+
+  <!-- 注：本页面为演示设计，无真实后端。表单提交仅弹窗提示。 -->
+</body>
+</html>
